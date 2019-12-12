@@ -54,10 +54,11 @@ You can also view the package page on [Nuget](https://www.nuget.org/packages/Car
     var asyncResult = client.BeginClimateOn(loginResult, vehicleInfo);
     for (var attempt = 0; attempt < 15; attempt++)
     {
-      var result = client.BeginClimateOn(loginResult, vehicleInfo, asyncResult);
+      var result = client.EndClimateOn(loginResult, vehicleInfo, asyncResult);
       if (result.ResponseFlag == 1)
       {
-          // Was turned on successfully.
+          Console.WriteLine("Success!");
+          return;
       }
 
       Thread.Sleep(5000);
