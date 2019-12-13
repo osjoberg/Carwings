@@ -25,10 +25,10 @@ You can also view the package page on [Nuget](https://www.nuget.org/packages/Car
     service.Login("username", "password", Region.Europe);
     
     // Assuming we exactly one vehicle on this account.
-    var car = service.Vehicles.Single();
+    var vehicle = service.Vehicles.Single();
 
     // Turn climate on.
-    car.ClimateOn();
+    vehicle.ClimateOn();
 
 ```
 
