@@ -24,11 +24,11 @@ You can also view the package page on [Nuget](https://www.nuget.org/packages/Car
     // TODO: Insert real username and password here.
     service.Login("username", "password", Region.Europe);
     
-    // Assuming we only have one vehicle on this.
-    var car = service.Vehicles.Single();
+    // Assuming exactly one vehicle on this account.
+    var vehicle = service.Vehicles.Single();
 
     // Turn climate on.
-    car.ClimateOn();
+    vehicle.ClimateOn();
 
 ```
 
@@ -48,7 +48,7 @@ You can also view the package page on [Nuget](https://www.nuget.org/packages/Car
     // TODO: Insert real username and password here.
     var loginResult = client.Login("username", "password", Region.Europe, initializeResult.Baseprm);
        
-    // Assuming we only have one vehicle on this.
+    // Assuming exactly one vehicle on this account.
     var vehicleInfo = loginResult.VehicleInfo.Single();
     
     var asyncResult = client.BeginClimateOn(loginResult, vehicleInfo);
