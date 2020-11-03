@@ -14,16 +14,16 @@ namespace Carwings
                 .Select(trip => new Trip(trip))
                 .ToArray();
 
-            DistanceKM = Trips.Sum(trip => trip.DistanceKM);
+            DistanceKm = Trips.Sum(trip => trip.DistanceKm);
             EngineKW = Trips.Sum(trip => trip.EngineKW);
             TotalKW = Trips.Sum(trip => trip.TotalKW);
             RegenerativeKW = Trips.Sum(trip => trip.RegenerativeKW);
 
-            if (DistanceKM != 0)
+            if (DistanceKm != 0)
             {
-                TotalKWPerKm = TotalKW / DistanceKM;
-                EngineKWPerKm = EngineKW / DistanceKM;
-                RegenerativeKWPerKm = RegenerativeKW / DistanceKM;
+                TotalKWPerKm = TotalKW / DistanceKm;
+                EngineKWPerKm = EngineKW / DistanceKm;
+                RegenerativeKWPerKm = RegenerativeKW / DistanceKm;
             }
         }
 
@@ -33,7 +33,7 @@ namespace Carwings
 
         public double EngineKW { get; }
 
-        public double DistanceKM { get; }
+        public double DistanceKm { get; }
 
         public DateTime Date { get; }
 

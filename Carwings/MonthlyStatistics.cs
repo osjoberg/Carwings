@@ -15,16 +15,16 @@ namespace Carwings
                 .Select(psdid => new DailyStatistics(psdid))
                 .ToArray();
 
-            DistanceKM = DailyStatistics.Sum(day => day.DistanceKM);
+            DistanceKm = DailyStatistics.Sum(day => day.DistanceKm);
             EngineKW = DailyStatistics.Sum(day => day.EngineKW);
             TotalKW = DailyStatistics.Sum(day => day.TotalKW);
             RegenerativeKW = DailyStatistics.Sum(day => day.RegenerativeKW);
 
-            if (DistanceKM != 0)
+            if (DistanceKm != 0)
             {
-                TotalKWPerKm = TotalKW / DistanceKM;
-                EngineKWPerKm = EngineKW / DistanceKM;
-                RegenerativeKWPerKm = RegenerativeKW / DistanceKM;
+                TotalKWPerKm = TotalKW / DistanceKm;
+                EngineKWPerKm = EngineKW / DistanceKm;
+                RegenerativeKWPerKm = RegenerativeKW / DistanceKm;
             }
         }
 
@@ -40,7 +40,7 @@ namespace Carwings
 
         public double EngineKW { get; }
 
-        public double DistanceKM { get; }
+        public double DistanceKm { get; }
 
         public DailyStatistics[] DailyStatistics { get; }
     }

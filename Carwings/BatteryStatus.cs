@@ -11,8 +11,8 @@ namespace Carwings
         {
             Capacity = batteryStatusResult.BatteryCapacity;
             Remaining = batteryStatusResult.BatteryDegradation;
-            RemainingPercent = (int)Math.Round((double)batteryStatusResult.BatteryCapacity / batteryStatusResult.BatteryCapacity * 100, MidpointRounding.AwayFromZero);
-            EstimatedRangeKM = (int)Math.Round(batteryStatusResult.CruisingRangeAcOn / 1000D, MidpointRounding.AwayFromZero);
+            RemainingPercent = (int)Math.Round((double)batteryStatusResult.BatteryDegradation / batteryStatusResult.BatteryCapacity * 100, MidpointRounding.AwayFromZero);
+            EstimatedRangeKm = (int)Math.Round(batteryStatusResult.CruisingRangeAcOn / 1000D, MidpointRounding.AwayFromZero);
             TimeToFullCharge = TimeRequiredModel.ToTimeSpan(batteryStatusResult.TimeRequiredToFull);
             TimeToFullCharge3KW = TimeRequiredModel.ToTimeSpan(batteryStatusResult.TimeRequiredToFull200);
             TimeToFullCharge6KW = TimeRequiredModel.ToTimeSpan(batteryStatusResult.TimeRequiredToFull6kW);
@@ -44,8 +44,8 @@ namespace Carwings
 
             Capacity = batteryStatus.BatteryCapacity;
             Remaining = batteryStatus.BatteryRemainingAmount;
-            RemainingPercent = (int)Math.Round((double)batteryStatus.BatteryCapacity / batteryStatus.BatteryCapacity * 100, MidpointRounding.AwayFromZero);
-            EstimatedRangeKM = (int)Math.Round(batteryRecords.CruisingRangeAcOn / 1000D, MidpointRounding.AwayFromZero);
+            RemainingPercent = (int)Math.Round((double)batteryStatus.BatteryRemainingAmount / batteryStatus.BatteryCapacity * 100, MidpointRounding.AwayFromZero);
+            EstimatedRangeKm = (int)Math.Round(batteryRecords.CruisingRangeAcOn / 1000D, MidpointRounding.AwayFromZero);
             TimeToFullCharge = TimeRequiredModel.ToTimeSpan(batteryRecords.TimeRequiredToFull);
             TimeToFullCharge3KW = TimeRequiredModel.ToTimeSpan(batteryRecords.TimeRequiredToFull200);
             TimeToFullCharge6KW = TimeRequiredModel.ToTimeSpan(batteryRecords.TimeRequiredToFull6kW);
@@ -76,7 +76,7 @@ namespace Carwings
 
         public int RemainingPercent { get; }
 
-        public int EstimatedRangeKM { get; }
+        public int EstimatedRangeKm { get; }
 
         public ChargingStatus ChargingStatus { get; }
 

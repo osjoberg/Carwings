@@ -6,7 +6,7 @@ namespace Carwings
     {
         internal Trip(PriceSimulatorDetailInfoTripModel trip)
         {
-            DistanceKM = (double)trip.TravelDistance / 1000;
+            DistanceKm = (double)trip.TravelDistance / 1000;
             TotalKW = trip.PowerConsumptTotal / 1000;
             EngineKW = trip.PowerConsumptMoter / 1000;
             RegenerativeKW = trip.PowerConsumptMinus / 1000;
@@ -19,7 +19,7 @@ namespace Carwings
             }
         }
 
-        public double DistanceKM { get; }
+        public double DistanceKm { get; }
 
         public double TotalKW { get; }
 
