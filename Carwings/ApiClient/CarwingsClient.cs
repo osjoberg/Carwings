@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 
 using Carwings.ApiClient.Models;
 using Carwings.ApiClient.Results;
@@ -38,13 +39,17 @@ namespace Carwings.ApiClient
 
         public LoginResult Login(string username, string password, Region region, string basePrm)
         {
-            var encryptedPassword = new Blowfish().Encrypt(password, basePrm);
+            var key = Encoding.UTF8.GetBytes(basePrm);
+
+            var passwordBytes = Encoding.UTF8.GetBytes(password);
+
+            var encryptedPassword = new Blowfish(key).EncryptBytes(passwordBytes);
 
             var parameters = new Parameters
             {
                 { "RegionCode", region.ToString() },
                 { "UserId", username },
-                { "Password", encryptedPassword },
+                { "Password", Convert.ToBase64String(encryptedPassword) },
                 { "initial_app_str", InitialAppStr },
             };
 
