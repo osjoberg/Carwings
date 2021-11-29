@@ -76,9 +76,14 @@ namespace Carwings
             return new MonthlyStatistics(CarwingsClient.GetMonthlyStatistics(LoginResult, vehicleInfo, year, month));
         }
 
-        private T CallAsync<T>(Func<AsyncResult> begin, Func<AsyncResult, T> end) where T : IResponseFlag
+        private T CallAsync<T>(Func<AsyncResult> begin, Func<AsyncResult, T> end) where T : class, IResponseFlag
         {
             var asyncResult = begin();
+
+            if (asyncResult.ResultKey == "NoNMA")
+            {
+                return null;
+            }
 
             for (var attempt = 0; attempt < 15; attempt++)
             {

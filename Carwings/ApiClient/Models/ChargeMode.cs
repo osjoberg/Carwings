@@ -13,6 +13,9 @@ namespace Carwings.ApiClient.Models
         [EnumMember(Value = "220V")]
         Wall220v,
 
+        [EnumMember(Value = "110V")]
+        Wall110v,
+
         [EnumMember(Value = "RAPIDLY_CHARGING")]
         RapidCharging,
     }

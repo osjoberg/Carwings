@@ -15,7 +15,7 @@ namespace Carwings.ApiClient
     {
         internal readonly HttpClientWrapper HttpClient = new HttpClientWrapper();
 
-        private const string BaseUrl = "https://gdcportalgw.its-mo.com/api_v190426_NE/gdc/";
+        private const string BaseUrl = "https://gdcportalgw.its-mo.com/api_v210707_NE/gdc/";
         private const string InitialAppStr = "9s5rfKVuMrT03RtzajWNcA";
 
         public CarwingsClient()
